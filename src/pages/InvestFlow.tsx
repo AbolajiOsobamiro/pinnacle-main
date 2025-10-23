@@ -113,7 +113,7 @@ const InvestFlow = () => {
   };
 
   const handleComplete = () => {
-    navigate('/dashboard');
+    navigate('/updated-dashboard');
   };
 
   return (

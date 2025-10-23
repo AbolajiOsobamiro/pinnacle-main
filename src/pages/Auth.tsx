@@ -25,7 +25,7 @@ const Auth = () => {
   }
 
   if (!loading && userLoggedIn) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/updated-dashboard" replace />;
   }
 
   if (loading || isSigningIn) {

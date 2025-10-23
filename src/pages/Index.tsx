@@ -23,7 +23,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!loading && userLoggedIn) {
-      navigate("/dashboard", { replace: true });
+      navigate("/updated-dashboard", { replace: true });
     }
   }, [loading, userLoggedIn, navigate]);
   
