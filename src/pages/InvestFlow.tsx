@@ -91,7 +91,7 @@ const InvestFlow = () => {
         symbol: selectedCryptoData.symbol,
         amount_usd: parseFloat(amount),
         wallet_address: selectedCryptoData.walletAddress,
-        status: 'pending',
+        status: 'confirmed',
         created_at: new Date() // optional: for ordering
       });
   

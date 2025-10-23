@@ -78,6 +78,11 @@ const UpdatedDashboard = () => {
   const handleWithdraw = async () => {
     if (!selectedInvestment || !withdrawAddress) return;
   
+    console.log({
+      currentUser,
+      selectedInvestment,
+      withdrawAddress
+    });
     try {
       // 1. Add withdrawal record
       const withdrawalsRef = collection(db, "withdrawals");
@@ -86,7 +91,7 @@ const UpdatedDashboard = () => {
         investment_id: selectedInvestment.id,
         wallet_address: withdrawAddress,
         amount_usd: selectedInvestment.amount_usd * multiplier,
-        status: 'pending',
+        status: 'withdrawn',
         created_at: new Date()
       });
   
@@ -242,7 +247,7 @@ const UpdatedDashboard = () => {
                           {new Date(investment.created_at).toLocaleDateString()}
                         </p>
                       </div>
-                      {investment.status === 'confirmed' && (
+                      {['confirmed', 'pending'].includes(investment.status?.toLowerCase()) && (
                         <Dialog open={isWithdrawOpen} onOpenChange={setIsWithdrawOpen}>
                           <DialogTrigger asChild>
                             <Button 
